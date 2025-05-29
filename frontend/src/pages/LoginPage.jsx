@@ -57,8 +57,8 @@ const LoginPage = () => {
         }
 
     const url = loginState
-      ? 'http://localhost:8000/api/v1/user/login'
-      : 'http://localhost:8000/api/v1/user/register'
+      ? 'https://dot-list-api.vercel.app/api/v1/user/login'
+      : 'https://dot-list-api.vercel.app/v1/user/register'
 
     try {
       const res = await axios.post(url, payload, { withCredentials: true })

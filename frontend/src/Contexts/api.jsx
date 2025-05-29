@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL:  'http://localhost:8000/api/v1/user',
-  withCredentials: true, 
+  baseURL: 'https://dot-list-api.vercel.app/api/v1/user',
+  withCredentials: true,
 })
 
 export default api

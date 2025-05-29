@@ -16,9 +16,9 @@ export const UserProvider = ({ children }) => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:8000/api/v1/user/currentUser',
+          'https://dot-list-api.vercel.app/api/v1/user/currentUser',
           {
-            withCredentials: true, 
+            withCredentials: true,
           }
         )
         setUser(response.data)
