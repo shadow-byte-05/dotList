@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+
+@theme {
+  --yellow-800: #4f46e5;
+  --yellow-900: #4338ca;
+  --yellow-600: #6366f1;
+  --gray-900: #111827;
+  --gray-800: #1f2937;
+  --sgray-700: #374151;
+  --gray-500: #4b5563;
+  --gray-100: #ffffff;
+  --gray-200: #d1d5db;
+  --gray-400: #9ca3af;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --error: #ef4444;
+  --info: #60a5fa;
+}
