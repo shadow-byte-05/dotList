@@ -52,7 +52,7 @@ userSchema.methods.createAccessTokenAndRefreshToken = async function (){
             email:this.email, 
         },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn : process.env.ACCESS_TOKEN_VALIDITY}
+        { expiresIn : '1d'}
 
     )
     const refreshToken = jwt.sign(
@@ -61,7 +61,7 @@ userSchema.methods.createAccessTokenAndRefreshToken = async function (){
         email: this.email,
       },
       process.env.REFRESH_TOKEN_SECRET,
-      { expiresIn: process.env.REFRESH_TOKEN_VALIDITY }
+      { expiresIn: '10d' }
     )
     this.refreshToken = refreshToken
     await this.save({validateBeforeSave: false})
