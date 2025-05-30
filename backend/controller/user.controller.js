@@ -26,9 +26,27 @@ const registerUser = AsyncHandler(async (req, res) => {
   if (!user) {
     throw new ApiError(500, 'something went wrong while registering')
   }
+  let accessToken, refreshToken
+  try {
+    const tokens = await user.createAccessTokenAndRefreshToken()
+    accessToken = tokens.accessToken
+    refreshToken = tokens.refreshToken
+  } catch (error) {
+    throw new ApiError(500, 'Failed to generate tokens')
+  }
   return res
     .status(200)
     .json(new ApiResponse(200, user, 'user registered successfully'))
+    .cookie('accessToken', accessToken, {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'None',
+    })
+    .cookie('refreshToken', refreshToken, {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'None',
+    })
 })
 
 const loginUser = AsyncHandler(async (req, res) => {
