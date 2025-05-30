@@ -37,11 +37,16 @@ const loginUser = AsyncHandler(async (req, res) => {
   if (!identifier || password.trim() === '') {
     throw new ApiError(400, 'All fields are required')
   }
-  let username_c, email_c
+  let username_c = null
+  let email_c = null
 
-  identifier.includes('@') ? { email_c : identifier } : { username_c: identifier }
+  if (identifier.includes('@')) {
+    email_c = identifier
+  } else {
+    username_c = identifier
+  }
   const user = await User.findOne({
-    $or: [{ username_c }, { email_c }],
+    $or: [{ username: username_c }, { email: email_c }],
   })
 
   if (!user) {
@@ -76,7 +81,7 @@ const loginUser = AsyncHandler(async (req, res) => {
     })
     .cookie('refreshToken', refreshToken, {
       httpOnly: true,
-      secure: false,
+      secure:true,
       sameSite: 'None',
     })
     .json(new ApiResponse(200, loggedInUser, 'User Logged in successfully'))
