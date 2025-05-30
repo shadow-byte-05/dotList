@@ -16,7 +16,7 @@ export const UserProvider = ({ children }) => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          'https://dot-list-api.vercel.app/api/v1/user/currentUser',
+          'https://dotlist-1.onrender.com/api/v1/user/currentUser',
           {
             withCredentials: true,
           }
