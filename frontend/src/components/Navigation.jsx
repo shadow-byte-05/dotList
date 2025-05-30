@@ -27,7 +27,7 @@ function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center fade-in-down">
             <Link
-              to="/landing-page"
+              to="/"
               className="flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-yellow-600 rounded-md p-1 transition-transform duration-200 hover:scale-105"
             >
               <div className="w-8 h-8  flex items-center justify-center shadow-lg">
